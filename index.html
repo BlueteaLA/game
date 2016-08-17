@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>游戏</title>
+	<link rel="stylesheet" href="css/game.css">
+	<script src="js/game.js"></script>
+	<script>
+	window.onload=function(){
+		var sence=document.getElementsByClassName("sence")[0];
+		var start=document.getElementsByClassName("start")[0];
+		// var stop=document.getElementsByClassName("stop")[0];
+		var end=document.getElementsByClassName("end")[0];
+
+		var startFlag=true;
+		var stopFlag=true;
+		var endFlag=true;
+		var games=new game(sence)	
+		start.onclick=function(){
+			if(startFlag){
+				startFlag=false;
+				games.play();
+				games.key();
+			}
+		}
+		// stop.onclick=function(){
+		// 	games.flag=false;
+		// 	alert(games.flag)
+		// }
+		end.onclick=function(){
+			if(confirm("确定结束游戏吗")){
+				document.location.reload();
+				return;
+			}
+		}
+		console.dir(document);
+	}
+	</script>
+</head>
+<body>
+	<div class="sence">
+		<div class="btn start">开始游戏</div>
+		<!-- <div class="btn stop">暂停游戏</div> -->
+		<div class="btn end">结束游戏</div>
+	</div>
+</body>
+</html>
